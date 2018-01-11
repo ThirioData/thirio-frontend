@@ -1,6 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import { Menu } from 'semantic-ui-react'
+import { Route, Link } from 'react-router-dom'
 
 export default props => {
   return (
@@ -9,18 +8,13 @@ export default props => {
       exact
       children={({match, history}) => {
         return (
-          <Menu>
-            <Menu.Item
-              href={props.href}
-              name={props.children}
-              onClick={e => history.push(e.currentTarget.getAttribute("href"))}
-              active = {match ? true : false}
-              {...props}
-            />
-          </Menu>
+          <Link
+            to={props.href}
+            className={match ? 'active item': 'item'}
+            {...props}
+          >{props.children}</Link>
         )
       }}
-    >
-    </Route>
+    />
   )
 }

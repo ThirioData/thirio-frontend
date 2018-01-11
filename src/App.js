@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 import AuthService from './containers/AuthService/AuthService'
 import './App.css';
 
@@ -9,7 +10,7 @@ import RouteNavItem from './containers/RouteNavItem'
 
 const Auth = new AuthService("https://dodoapi.herokuapp.com")
 class App extends Component {
-  loggOut() {
+  loggOut = event => {
     Auth.logout()
     this.props.history.replace("/login")
   }
@@ -18,7 +19,7 @@ class App extends Component {
     if(!Auth.loggenIn()) {
       logout = <RouteNavItem href="/login">Login</RouteNavItem>
     } else {
-      logout = <Menu.Item name="logout" position="right" href="/logout" onClick={this.loggOut}/>
+      logout = <Menu.Item name="logout" onClick={this.loggOut}/>
     }
     return (
       <Container className="App">
@@ -38,4 +39,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

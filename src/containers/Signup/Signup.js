@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import uuid from "uuid"
-import { Container, Button, Checkbox, Form, Dropdown, Radio } from 'semantic-ui-react'
+import { Container, Button, Form, Dropdown, Radio } from 'semantic-ui-react'
 import "./Signup.css"
 import { Places, Gender } from "./Places"
 

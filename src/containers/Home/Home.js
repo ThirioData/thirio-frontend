@@ -1,15 +1,37 @@
 import React, { Component } from 'react'
+import { Container, Header } from 'semantic-ui-react'
+import Food from './Foods'
+import axios from 'axios'
 import "./Home.css"
 
 export default class Home extends Component {
+  state= {
+    foods: []
+  }
+  componentWillMount() {
+  axios.get('https://dodoapi.herokuapp.com/foods')
+    .then(res => {
+      this.setState({
+        foods: res.data.foods
+      })
+      console.log(res.data.foods)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
   render() {
     return (
-      <div className="Home">
+      <Container className="Home">
         <div className="lander">
-          <h1>Welcome to thirio</h1>
-          <p>Login / Signup to get started.</p>
+          <Header>Welcome to thirio</Header>
+          {
+            this.state.foods.map(food => {
+              return <Food food={food} />
+            })
+          }
         </div>
-      </div>
+      </Container>
     )
   }
 }

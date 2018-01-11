@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AuthService from '../AuthService/AuthService'
-import { Container, Button, Checkbox, Form } from 'semantic-ui-react'
+import { Container, Button, Form } from 'semantic-ui-react'
 import "./Login.css"
 
 export default class Login extends Component {

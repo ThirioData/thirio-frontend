@@ -2,7 +2,7 @@
 ## It is build using create-react-app
 
 ```
-git clone https://github.com/nirajgeorgian/react-frontend-thirio.git
+git clone https://github.com/nirajgeorgian/thirio-frontend.git
 cd react-frontend-thirio
 npm install
 npm start
