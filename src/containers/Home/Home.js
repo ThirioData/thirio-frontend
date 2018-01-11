@@ -26,8 +26,8 @@ export default class Home extends Component {
         <div className="lander">
           <Header>Welcome to thirio</Header>
           {
-            this.state.foods.map(food => {
-              return <Food food={food} />
+            this.state.foods.map((food, key) => {
+              return <Food key={key} food={food} />
             })
           }
         </div>
