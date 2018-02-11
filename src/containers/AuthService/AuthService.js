@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default class AuthService {
   constructor(domain) {
-    this.domain = domain || 'https://dodoapi.herokuapp.com'
+    this.domain = domain || 'http://159.89.172.19'
     this.fetch = this.fetch.bind(this)
     this.login = this.login.bind(this)
     this.getProfile = this.getProfile.bind(this)
@@ -12,7 +12,7 @@ export default class AuthService {
   login(username, password) {
     return axios({
       method: 'POST',
-      url: `${this.domain}/auth`,
+      url: `${this.domain}login`,
       headers: {
         'Content-Type': 'application/json',
       },
