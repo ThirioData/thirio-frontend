@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import Routes from './Routes'
 import RouteNavItem from './containers/RouteNavItem'
 
-const Auth = new AuthService("https://dodoapi.herokuapp.com")
+const Auth = new AuthService("http://159.89.172.19")
 class App extends Component {
   loggOut = event => {
     Auth.logout()
@@ -31,6 +31,7 @@ class App extends Component {
           </Menu.Item>
           <RouteNavItem href="/foods">foods</RouteNavItem>
           <RouteNavItem href="/signup">Signup</RouteNavItem>
+          <RouteNavItem href="/order">Order</RouteNavItem>
             {logout}
           </Menu>
         <Routes />

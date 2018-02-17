@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import AuthService from '../containers/AuthService/AuthService'
 
 export default function withAuth(AuthComponent) {
-  const Auth = new AuthService("https://dodoapi.herokuapp.com")
+  const Auth = new AuthService("http://159.89.172.19")
   return class AuthWrapped extends Component {
     // this calss is returned
     constructor() {

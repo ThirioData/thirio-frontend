@@ -7,17 +7,17 @@ export default class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: "",
+      email: "",
       password: ""
     }
-    this.Auth = new AuthService("https://dodoapi.herokuapp.com")
+    this.Auth = new AuthService("http://159.89.172.19/")
   }
   componentWillMount() {
     if(this.Auth.loggenIn())
       this.props.history.replace("/")
   }
   validateForm() {
-    return this.state.username.length > 0 && this.state.password.length > 4
+    return this.state.email.length > 0 && this.state.password.length > 4
   }
   handleChange = event  => {
     this.setState({
@@ -26,6 +26,7 @@ export default class Login extends Component {
   }
   handleSubmit = event => {
     event.preventDefault()
+    console.log(this.state);
     this.Auth.login(this.state.username, this.state.password)
       .then(res => {
         this.props.history.replace("/")
@@ -42,7 +43,7 @@ export default class Login extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <label>username</label>
-            <input type="text" placeholder="Enter your username" autoFocus id="username" value={this.state.username} onChange={this.handleChange}/>
+            <input type="text" placeholder="Enter your username" autoFocus id="email" value={this.state.username} onChange={this.handleChange}/>
           </Form.Field>
           <Form.Field>
             <label>Password:</label>
